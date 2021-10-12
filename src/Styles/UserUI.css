@@ -1,0 +1,73 @@
+#userMain{
+    width: 100%;
+    height: 100vh;
+    background-color: #EEEEEE;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: baseline;
+}
+#userMain .header{
+    display: flex;
+    width: 100%;
+    height: 5%;
+    line-height: 30px;
+    color: #EEEEEE;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+#userMain .information{
+    width: 10%;
+    height: 100%;
+    background-color: #00ADB5;
+    text-align: center;
+    
+}
+
+
+#userMain .menu{
+    display: flex;
+    width: 90%;
+    height: 100%;
+    background-color: #222831;
+    justify-content: flex-end;
+}
+
+#userMain .contacts{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+#userMain .contacts div{
+    padding: 0px 10px;
+}
+
+
+#userMain .switchUser{
+    height: 100%;
+}
+
+#userMain .switchButton{
+    height: 100%;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    background-color: #00ADB5;
+    color: #EEEEEE;
+    border: 0px;
+    padding: 5px;
+}
+
+#userMain .container{
+    width: 100%;
+    height: 95%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+#userMain .box{
+    width: 50%;
+    height: 100%;
+}

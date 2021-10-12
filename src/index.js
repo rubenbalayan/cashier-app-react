@@ -1,12 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import './Styles/index.css';
 import reportWebVitals from './reportWebVitals';
+import Login from './Pages/Login';
+import UserUI from './Pages/UserUI';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <UserUI />
   </React.StrictMode>,
   document.getElementById('root')
 );
