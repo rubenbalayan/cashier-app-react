@@ -47,6 +47,7 @@ class UserUI extends React.Component{
         this.handleCountInput = this.handleCountInput.bind(this);
         this.handleProductSelect = this.handleProductSelect.bind(this);
         this.handleProductSubmit = this.handleProductSubmit.bind(this);
+        this.handleOrderListProductDelete = this.handleOrderListProductDelete.bind(this);
     }
 
     handleSearchInput(event){
@@ -96,10 +97,18 @@ class UserUI extends React.Component{
                                 count:event.target.value,
                                 price:this.state.tempItem.price*event.target.value}]}));
                 this.setState({tempItem : null});
+                this.setState({productCount : ""});
             }
             
             
         }
+
+        
+      }
+
+      handleOrderListProductDelete(event)
+      {
+
       }
 
 
@@ -166,7 +175,7 @@ class UserUI extends React.Component{
                                         <td>{product.name}</td>
                                         <td>{product.count}</td>
                                         <td>{product.price}</td>
-                                        <td>X</td>
+                                        <td onClick={this.handleOrderListProductDelete}>X</td>
                                     </tr>         
                                     )}
                             </table>

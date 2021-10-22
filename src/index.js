@@ -4,10 +4,12 @@ import './Styles/index.css';
 import reportWebVitals from './reportWebVitals';
 import Login from './Pages/Login';
 import UserUI from './Pages/UserUI';
+import UserUIF from './Pages/UserUIcopy';
+
 
 ReactDOM.render(
   <React.StrictMode>
-    <UserUI />
+    <UserUIF />
   </React.StrictMode>,
   document.getElementById('root')
 );

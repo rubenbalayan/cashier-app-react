@@ -184,3 +184,23 @@
 #userMain .orderTable    tr td:last-child:hover{
     background-color: yellow;
 }
+
+#userMain .orderCheckout{
+    width: 95%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#userMain .payedSum{
+    width: 50%;
+}
+
+#userMain .orderTotalSum{
+    width: 50%;
+    text-align: end;
+    font-size: 36px;
+    font-weight: bold;
+    color: red;
+}
