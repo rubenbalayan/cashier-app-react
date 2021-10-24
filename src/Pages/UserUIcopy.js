@@ -8,7 +8,7 @@ const INITIAL_MOCK_DATA = [{
         id: 1,
         name: "product1",
         count: 10,
-        price: 100
+        price: 100,
     },
     {
         id: 2,
@@ -45,122 +45,23 @@ const INITIAL_MOCK_DATA = [{
         name: "product7",
         count: 0,
         price: 200
-    },
-    {
-        id: 8,
-        name: "product8",
-        count: 88,
-        price: 60
-    },
-    {
-        id: 1,
-        name: "product1",
-        count: 10,
-        price: 100
-    },
-    {
-        id: 2,
-        name: "product2",
-        count: 4,
-        price: 1250
-    },
-    {
-        id: 3,
-        name: "product3",
-        count: 50,
-        price: 1520
-    },
-    {
-        id: 4,
-        name: "product4",
-        count: 25,
-        price: 3950
-    },
-    {
-        id: 5,
-        name: "product5",
-        count: 18,
-        price: 5000
-    },
-    {
-        id: 6,
-        name: "product6",
-        count: 1,
-        price: 12000
-    },
-    {
-        id: 7,
-        name: "product7",
-        count: 0,
-        price: 200
-    },
-    {
-        id: 8,
-        name: "product8",
-        count: 88,
-        price: 60
-    },
-    {
-        id: 1,
-        name: "product1",
-        count: 10,
-        price: 100
-    },
-    {
-        id: 2,
-        name: "product2",
-        count: 4,
-        price: 1250
-    },
-    {
-        id: 3,
-        name: "product3",
-        count: 50,
-        price: 1520
-    },
-    {
-        id: 4,
-        name: "product4",
-        count: 25,
-        price: 3950
-    },
-    {
-        id: 5,
-        name: "product5",
-        count: 18,
-        price: 5000
-    },
-    {
-        id: 6,
-        name: "product6",
-        count: 1,
-        price: 12000
-    },
-    {
-        id: 7,
-        name: "product7",
-        count: 0,
-        price: 200
-    },
-    {
-        id: 8,
-        name: "product8",
-        count: 88,
-        price: 60
     }
+    
 ]
 
 const UserUIF = () => {
 
-    const [cashier, setcashier] = useState("Cashier1");
-    const [technicalSupportNumber, settechnicalSupportNumber] = useState("0XX-XX-XX-XX")
-    const [managerNumber, setmanagerNumber] = useState("0XX-XX-XX-XX")
-    const [searchValue, setsearchValue] = useState('');
-    const [productCount, setproductCount] = useState('');
-    const [productsList, setproductsList] = useState([]);
-    const [orderList, setorderList] = useState([]);
-    const [tempItem, settempItem] = useState(null);
+    const [cashier, setCashier] = useState("Cashier1");
+    const [technicalSupportNumber, setTechnicalSupportNumber] = useState("0XX-XX-XX-XX")
+    const [managerNumber, setManagerNumber] = useState ("0XX-XX-XX-XX")
+    const [searchValue, setSearchValue] = useState('');
+    const [productCount, setProductCount] = useState('');
+    const [productsList, setProductsList] = useState([]);
+    const [orderList, setOrderList] = useState([]);
+    const [tempItem, setTempItem] = useState(null);
     const [totalOrderSum, setTotalOrderSum] = useState(0);
+    const [payedCash, setPayedCash] = useState('');
+    const [change, setChange] = useState('');
     
     const scanInputRef = React.createRef();
 
@@ -169,7 +70,7 @@ const UserUIF = () => {
         const data = await new Promise((res) => {
             setTimeout(() => res(INITIAL_MOCK_DATA), 2000)
         })
-        setproductsList(data);
+        setProductsList(data);
     }, [])
 
     useEffect(() => {
@@ -182,14 +83,14 @@ const UserUIF = () => {
         let value = event.target.value;
 
         if (value === "" || /^[a-zA-Z0-9]+$/.test(value)) {
-            setsearchValue(value)
+            setSearchValue(value)
         }
     }
     const handleCountInput = (event) => {
         let value = event.target.value;
 
         if (value === "" || /^[0-9]+$/.test(value)) {
-            setproductCount(value)
+            setProductCount(value)
         }
 
     }
@@ -197,12 +98,12 @@ const UserUIF = () => {
     const productCountRef = React.createRef();
 
     const handleProductSelect = (event) => {
-        settempItem({
+        setTempItem({
             name: event.target.parentNode.children[0].innerText,
             price: event.target.parentNode.children[2].innerText,
             totalCount: event.target.parentNode.children[1].innerText
         })
-        setproductCount(1);
+        setProductCount(1);
         productCountRef.current.focus();
     }
 
@@ -213,14 +114,14 @@ const UserUIF = () => {
             } else if (event.target.value > tempItem.totalCount) {
                 alert("Entered count is greater than product count in the shop" + event.target.value + " : " + tempItem.totalCount);
             } else {
-                setorderList([...orderList, {
+                setOrderList([...orderList, {
                     name: tempItem.name,
                     count: event.target.value,
                     price: tempItem.price * event.target.value
                 }]);
                 setTotalOrderSum(totalOrderSum+(event.target.value*tempItem.price));
-                settempItem(null);
-                setproductCount("");
+                setTempItem(null);
+                setProductCount("");
                 scanInputRef.current.focus();
             }
 
@@ -230,18 +131,65 @@ const UserUIF = () => {
 
     }
 
-    const deleteProductFromOrderRef = React.createRef();
-
     const handleOrderListProductDelete = (event) =>{
+
         
         let name = event.target.parentNode.children[0].innerText;
         let price =  event.target.parentNode.children[2].innerText;
-        let count = event.target.parentNode.children[1].innerText
-        setorderList(orderList.filter(item=>item.name !== name));
+        let count = event.target.parentNode.children[1].innerText;
 
-        setTotalOrderSum(totalOrderSum-(price*count));
+        let tempOrderSum = totalOrderSum-(price);
+
+        let index = [...orderList].reverse().findIndex(item => item.name == name && item.count== count);
+
+        orderList.splice(orderList.length - 1 - index ,1)
+        setOrderList(orderList);
+
+        setTotalOrderSum(tempOrderSum);
+
+        if(payedCash !== '')
+        {
+            setChange(payedCash-tempOrderSum);
+        }
                        
         
+    }
+
+
+    const handlePayedSum = (event) => {
+        let value = event.target.value;
+
+        if (value === "" || /^[0-9]+$/.test(value)) {
+            setPayedCash(value);
+            setChange(value-totalOrderSum);
+        }
+
+        if(value==="")
+        {
+            setChange('');
+        }
+
+
+    }
+
+
+    const handleOrderSubmit = (event) =>{
+        if (event.key === 'Enter') {
+            if(orderList.length > 0 && change >= 0)
+            {
+                // Do post request call to endpoint
+                alert("Data is added to database! The change is " + change);
+                setOrderList([]);
+                setPayedCash('');
+                setTotalOrderSum(0);
+                setChange('');
+                scanInputRef.current.focus();
+            }
+        }
+    }
+
+    const handleLogOut = (event) => {
+
     }
 
     return ( <div id="userMain">
@@ -253,7 +201,7 @@ const UserUIF = () => {
         <div>Manager:{managerNumber}</div>
       </div>
       <div className="userControl">
-        <button className="controlButton">LogOut </button>
+        <button className="controlButton" onClick={handleLogOut}>LogOut </button>
       </div>
     </div>
   </div>
@@ -292,13 +240,16 @@ const UserUIF = () => {
             <td>{product.name}</td>
             <td>{product.count}</td>
             <td>{product.price}</td>
-            <td onClick={handleOrderListProductDelete} ref={deleteProductFromOrderRef}>X </td>
+            <td onClick={handleOrderListProductDelete}>X </td>
           </tr>)}
         </table>
       </div>
       <div className="orderCheckout">
         <div className="payedSum">
-        
+            <input id="cashInput" type="text" placeholder="" name="cashInput" value={payedCash}onChange={handlePayedSum}onKeyDown={handleOrderSubmit}required></input>
+            <div className="change">
+                {change}
+            </div>
         </div>
         <div className="orderTotalSum">
             {totalOrderSum}
