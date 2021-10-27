@@ -22,7 +22,7 @@ function AdminUI(){
     const [showUsername, setShowUsername] = useState("Admin1");
 
     const handleLogOut = (event) => {
-
+        
         localStorage.clear();
         history.push('/login');
   
