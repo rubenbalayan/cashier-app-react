@@ -1,0 +1,106 @@
+[
+    {
+        "productName": "wine",
+        "barcode": 123455
+    },
+    {
+        "productName": "bread",
+        "barcode": 45612
+    },
+    {
+        "productName": "soda",
+        "barcode": 95463
+    },
+    {
+        "productName": "chocolate",
+        "barcode": 545351
+    },
+    {
+        "productName": "coffee",
+        "barcode": 645123
+    },
+    {
+        "productName": "wine",
+        "barcode": 123455
+    },
+    {
+        "productName": "bread",
+        "barcode": 45612
+    },
+    {
+        "productName": "soda",
+        "barcode": 95463
+    },
+    {
+        "productName": "chocolate",
+        "barcode": 545351
+    },
+    {
+        "productName": "coffee",
+        "barcode": 645123
+    },
+    {
+        "productName": "wine",
+        "barcode": 123455
+    },
+    {
+        "productName": "bread",
+        "barcode": 45612
+    },
+    {
+        "productName": "soda",
+        "barcode": 95463
+    },
+    {
+        "productName": "chocolate",
+        "barcode": 545351
+    },
+    {
+        "productName": "coffee",
+        "barcode": 645123
+    },
+    {
+        "productName": "wine",
+        "barcode": 123455
+    },
+    {
+        "productName": "bread",
+        "barcode": 45612
+    },
+    {
+        "productName": "soda",
+        "barcode": 95463
+    },
+    {
+        "productName": "chocolate",
+        "barcode": 545351
+    },
+    {
+        "productName": "coffee",
+        "barcode": 645123
+    },
+    {
+        "productName": "chocolate",
+        "barcode": 545351
+    },
+    {
+        "productName": "coffee",
+        "barcode": 645123
+    },
+    {
+        "productName": "chocolate",
+        "barcode": 545351
+    },
+    {
+        "productName": "coffee",
+        "barcode": 645123
+    },
+    {
+        "productName": "chocolate",
+        "barcode": 545351
+    },
+    {
+        "productName": "coffee",
+        "barcode": 645123
+    }
+]

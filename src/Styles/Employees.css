@@ -1,0 +1,25 @@
+.employeeList {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  overflow-y: auto;
+  background-color: lightgray;
+}
+.employeeList li {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  color: black;
+  justify-content: space-between;
+}
+.employeeList li:hover {
+  background-color: rgb(189, 189, 189);
+}
+
+.employeeList .deleteButton {
+  margin-right: 3px;
+}
+.employeeList .deleteButton:hover {
+    background-color: lightslategray;
+  }

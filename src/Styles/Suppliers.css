@@ -1,0 +1,19 @@
+.supplierList {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    overflow-y: auto;
+    background-color: lightgray;
+  }
+  .supplierList li {
+      width: 100%;
+      height: 40px;
+      display: flex;
+      align-items: center ;
+      color: black;
+      margin-left: 10px;
+  }
+  .supplierList li:hover {
+      background-color: gray;
+  }
+  
